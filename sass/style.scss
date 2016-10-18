@@ -1,0 +1,42 @@
+@import 'vars';
+@import 'reset';
+@import 'font';
+
+.site {
+	text-align: center;
+	&__header {
+		background-color: $bg-app;
+		padding: 1rem 0;
+
+		&-circle {
+			width: 15rem;
+			height: 15rem;
+			margin: 0 auto;
+			> img {
+				border-radius: 50%;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	&__icon {
+		cursor: pointer;
+		transition: color .3s ease;
+		font-size: 2.5rem;
+	
+		&--twitter {
+			color: $color-twitter;
+			&:hover {
+				color: darken($color-twitter, 5);
+			}
+		}
+
+		&--github {
+			color: $color-github;
+			&:hover {
+				color: darken($color-github, 5);
+			}
+		}
+	}
+}

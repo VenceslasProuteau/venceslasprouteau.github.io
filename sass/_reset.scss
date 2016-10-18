@@ -1,0 +1,42 @@
+@viewport {
+   width: device-width;
+   zoom: 1;
+}
+
+html {
+	font-family: 'Open Sans Condensed', sans-serif;
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-tap-highlight-color: transparent;
+    color: $color-text;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: #333;
+    font-size: 1.6em;
+}
+
+a {
+    color: $color-text;
+    transition: color .3s ease-in;
+    &:hover {
+        color: darken($color-text, 20);
+    }
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
