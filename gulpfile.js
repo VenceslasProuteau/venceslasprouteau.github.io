@@ -53,6 +53,6 @@ gulp.task('prod', ['sassdoc'], function () {
   return gulp
     .src(input)
     .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(output));
 });
