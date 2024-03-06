@@ -12,20 +12,27 @@
 	</head>
 	<body>
 		<header>
-			<nav class="layout">
-				<ul>
-					<li>
-						<a href="#about">About</a>
-					</li>
-					<li>
-						<a href="#experience">Experience</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-			</nav>
-			<button aria-label="Toggle menu"></button>
+			<div class="layout">
+				<a href="#">
+					<svg viewBox="203.71184065375417 114.99999999999997 142.57631869249167 101.21091511642862">
+						<path d="M203.71184,165.60659l50.60545,-50.60659l13.8646,13.8646l-36.74086,36.74199l36.74086,36.74086l-13.86347,13.86347zM281.81697,128.8646l13.8646,-13.8646l50.60659,50.60659l-50.60659,50.60433l-13.8646,-13.86234l36.74086,-36.74199z"></path>
+					</svg>
+				</a>
+				<nav>
+					<ul>
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li>
+							<a href="#experience">Experience</a>
+						</li>
+						<li>
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+				</nav>
+				<button aria-label="Toggle menu"></button>
+			</div>
 		</header>
 		<div id="content">
 			<section class="layout">
@@ -42,33 +49,80 @@
 				I'm working since 2017 for <a href="https://www.canalplusgroup.com/fr" target="_blank">CANAL+ GROUP</a>, one of the biggest french broadcasting groups in France.<br /><br />
 				My colleagues and I are currently in charge of CANAL+ customer care & sales apps. We also provide those apps to french internet service providers on their TV apps.
 				<br />
-				These apps are used not only available for our french customers, but also for our swiss customers, and in the near future in other countries where CANAL+ is present.
+				These apps are not only available for our french customers, but also for our swiss customers, and in the near future in other countries where CANAL+ is present.
 				<br /><br />
 				I've learned a lot during these 7 years here, but it's time for me to move on, find an another challenge. So feel free to <a href="mailto:venceslas.prouteau@gmail.com?subject=Get in touch" class="contact">get in touch</a> with me !
 			</p>
 		</section>
 		<section id="experience">
 			<h1>Experience</h1>
-			<div id="experiences">
+			<div class="tabs-container">
+				<nav class="tabs">
+					<ul>
+						<li class="is-active">
+							<a href="#canal-tab">CANAL +</a>
+						</li>
+						<li>
+							<a href="#seloger-tab">SeLoger</a>
+						</li>
+					</ul>
+				</nav>
+				<section id="canal-tab" class="is-active">
+					<h1>July 2017 - Now</h1>
+					<p>
+						Frontend engineer working on customer care & sales applications / Sales app for CANAL+ distributors / TVI sales app.
+						<br />
+						This is a summary of the stack we are using on these projects :
+					</p>
+					<ul>
+						<li>
+							<h2>React</h2>
+							: using react & react-router-dom only, as our approach is to make apps that are the less possible framework dependant, in order to facilite future potential migrations.
+						</li>
+						<li>
+							<h2>Sass</h2>
+						</li>
+						<li>
+							<h2>Webpack</h2>
+							: used for dev server, and building of app
+						</li>
+						<li>
+							<h2>Gulp</h2>
+							: used to orchestrate our tasks (launch local server, e2e, unit tests etc..)
+						</li>
+						<li>
+							<h2>Jest</h2>
+							: unit testing of all our components and services
+						</li>
+						<li>
+							<h2>Cypress</h2>
+							: e2e testing off all apps pages, to avoid any css regressions on our pages
+						</li>
+					</ul>
+				</section>
+				<section id="seloger-tab">
+					<h1>September 2013 - June 2017</h1>
+					<p>Frontend engineer working on the development of Périclès Nomade & Avis de valeur, real estate agencies apps </p>
+					<ul><li><h2>AngularJS</h2></li><li><h2>Sass</h2></li></ul>
+				</section>
 			</div>
 		</section>
 		<section id="contact">
 			<h1>Contact</h1>
-			<form action="mailto:info@w3docs.com" method="get" enctype="text/plain">
-				<p>Nom: <input type="text" name="name" /></p>
-				<p>Email: <input type="text" name="email" /></p>
-				<p>
-					Commentaires:
+			<p>
+				Feel free to reach me by <a href="mailto:venceslas.prouteau@gmail.com?subject=Get in touch" class="contact">email</a>, or contact me on my social networks: <br /><br />
+				<ul>
+					<li>
+						- <a href="https://twitter.com/CzechVence" target="_blank">Twitter</a>
+					</li>
 					<br />
-					<textarea name="comments" rows="12" cols="35">Envoyez votre commentaires au site Web.</textarea>
-					<br />
-				</p>
-	
-				<p>
-					<input type="submit" name="submit" value="Send" />
-					<input type="reset" name="reset" value="Clear Form" />
-				</p>
-			</form>
+					<li>
+						- <a href="https://linkedin.com/in/venceslas-prouteau-79a74154" target="_blank">Linkedin</a>
+					</li>
+				</ul>
+				<br /><br />
+				You can also check my <a href="https://github.com/VenceslasProuteau" target="_blank">Github</a>
+			</p>
 		</section>
 	</body>
 	<script src="./public/index.js"></script>
