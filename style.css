@@ -72,7 +72,6 @@ header {
   position: fixed;
   display: flex;
   align-items: center;
-  text-transform: uppercase;
   background-color: white;
   color: var(--color-blue);
   height: 80px;
@@ -97,6 +96,7 @@ header .layout > nav > ul {
   display: flex;
   gap: 30px;
   font-size: 2rem;
+  text-transform: uppercase;
 }
 
 header .layout > nav > ul > li {
@@ -111,11 +111,15 @@ header .layout > nav > ul > li:hover {
   font-weight: bold;
 }
 
-header a > svg {
+header .layout > a {
+  display: flex;
+}
+
+header .layout > a > svg {
   width: 50px;
 }
 
-header a > svg > path {
+header .layout > a > svg > path {
   fill: var(--color-blue);
 }
 
@@ -350,6 +354,10 @@ body > section p {
     padding: 20px;
     font-size: 3rem;
     margin-top: 50px;
+  }
+
+  header .layout > a > svg {
+    width: 40px;
   }
 
   header .layout > a > svg > path {
