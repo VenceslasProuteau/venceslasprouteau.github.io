@@ -2,6 +2,7 @@
   --color-blue: #3f418d;
   --color-beige: #f9eded;
   --color-black: rgb(33, 37, 41);
+  --tabs-width: 200px;
 }
 
 * {
@@ -33,7 +34,7 @@ a.contact {
   border-bottom: dotted 2px var(--color-blue);
 }
 
-section a {
+body > section a {
   font-weight: bold;
   color: var(--color-blue);
 }
@@ -59,6 +60,14 @@ h1, h2 {
   text-transform: uppercase;
 }
 
+.layout {
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  padding: 0 60px;
+  margin: auto;
+}
+
 header {
   position: fixed;
   display: flex;
@@ -74,33 +83,40 @@ header {
   z-index: 10;
 }
 
-header > button {
+header .layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .layout > button {
   display: none;
 }
 
-nav > ul {
+header .layout > nav > ul {
   display: flex;
   gap: 30px;
+  font-size: 2rem;
 }
 
-nav > ul > li {
+header .layout > nav > ul > li {
   transition: font-weight .3s ease;
 }
 
-nav > ul > li > a {
+header .layout > nav > ul > li > a {
   display: block;
 }
 
-nav > ul > li:hover {
+header .layout > nav > ul > li:hover {
   font-weight: bold;
 }
 
-.layout {
-  display: flex;
-  flex: 1;
-  max-width: 1400px;
-  padding: 0 60px;
-  margin: auto;
+header a > svg {
+  width: 50px;
+}
+
+header a > svg > path {
+  fill: var(--color-blue);
 }
 
 #content {
@@ -136,7 +152,7 @@ nav > ul > li:hover {
   transition: opacity 500ms ease 0s;
 }
 
-section {
+body > section {
   flex-direction: column;
   width: 1020px;
   max-width: 100%;
@@ -144,7 +160,7 @@ section {
   padding-top: 80px;
 }
 
-section h1 {
+body > section h1 {
   display: flex;
   flex-direction: column;
   color: var(--color-blue);
@@ -152,54 +168,75 @@ section h1 {
   margin-bottom: 30px;
 }
 
-section p {
+body > section p {
   font-size: 1.4rem;
   line-height: 2.8rem;
 }
 
-#experiences {
+.tabs-container {
   display: flex;
   min-height: 340px;
 }
 
-#experiences > ul {
-  display: flex;
-  flex-direction: column;
+.tabs {
+  width: var(--tabs-width);
 }
 
-#experiences > ul > li {
-  padding: 20px 60px;
-  cursor: pointer;
+.tabs > ul {
+  display: flex;
+  flex-direction: column;
   border-left: solid 2px var(--color-blue);
 }
 
-#experiences > ul > li {
+.tabs > ul > li {
+  padding: 20px 60px;
+  cursor: pointer;
+}
+
+.tabs > ul > li {
   border-bottom: solid 2px transparent;
   font-size: 1.6rem;
   transition: font-weight ease-in .2s;
 }
 
-#experiences > ul > li.active {
+.tabs > ul > li > a {
+  font-weight: normal;
+}
+
+.tabs > ul > li.is-active {
   border-bottom: solid 2px var(--color-blue);
   color: var(--color-blue);
   font-weight: bold;
 }
 
-#experiences > div {
-  display: flex;
-  flex-direction: column;
-  margin-left: 40px;
+.tabs > ul > li.is-active > a {
+  font-weight: bold;
 }
 
-#experiences > div > h1 {
+.tabs-container {
+  position: relative;
+}
+
+.tabs-container > section {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: calc(var(--tabs-width) + 50px);
+  opacity: 0;
+  transition: opacity .1s ease-in;
+}
+
+.tabs-container > section.is-active {
+  opacity: 1;
+}
+
+.tabs-container > section > h1 {
   font-size: 1.6rem;
   margin-bottom: 10px;
-  font-weight: normal;
-  text-decoration: underline;
   text-transform: capitalize;
 }
 
-#experiences > div > ul {
+.tabs-container > section > ul {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -207,11 +244,11 @@ section p {
   gap: 10px;
 }
 
-#experiences > div > ul > li {
+.tabs-container > section > ul > li {
   position: relative;
 }
 
-#experiences > div > ul > li:before {
+.tabs-container > section > ul > li:before {
   position: absolute;
   content: '\25B8';
   left: -20px;
@@ -231,12 +268,10 @@ section p {
     background-color: transparent;
     color: var(--color-beige);
     box-shadow: none;
-    justify-content: flex-end;
-    padding: 20px;
     transition: all .3s ease;
   }
 
-  header > nav.layout {
+  header .layout > nav {
     position: fixed;
     top: 79px;
     left: 0;
@@ -248,8 +283,13 @@ section p {
     transition: transform .3s ease;
   }
 
-  header.active > nav {
+  header.active > .layout > nav {
     transform: translateX(0);
+  }
+
+  header.active .layout > a > svg > path,
+  header.scrolled .layout > a > svg > path {
+    fill: var(--color-blue);
   }
 
   header.scrolled,
@@ -259,17 +299,17 @@ section p {
     align-items: center;
   }
 
-  header.scrolled > button,
-  header.active > button {
+  header.scrolled .layout > button,
+  header.active .layout > button {
     border-color: var(--color-blue);
   }
 
-  header.scrolled > button:after,
-  header.active > button:after {
+  header.scrolled .layout > button:after,
+  header.active .layout > button:after {
     background-color: var(--color-blue);
   }
 
-  header > button {
+  header .layout > button {
     display: block;
     position: relative;
     width: 30px;
@@ -279,7 +319,7 @@ section p {
     transition: transform .3s ease 0;
   }
 
-  header > button:after {
+  header .layout > button:after {
     position: absolute;
     content: '';
     height: 2px;
@@ -287,16 +327,16 @@ section p {
     background-color: var(--color-beige);
   }
 
-  header > button.scrolled:after {
+  header .layout > button.scrolled:after {
     background-color: var(--color-blue);
   }
 
-  header > button:after {
+  header .layout > button:after {
     top: 50%;
     transform: translateY(-50%);
   }
 
-  header.active > button {
+  header.active .layout > button {
     transform: rotate(45deg);
   }
 
@@ -304,11 +344,17 @@ section p {
     display: block;
   }
 
-  header.active > nav > ul {
+  header.active .layout > nav > ul {
     flex-direction: column;
-    color: var(--color-black);
+    color: var(--color-blue);
     padding: 20px;
     font-size: 3rem;
+    margin-top: 50px;
+  }
+
+  header .layout > a > svg > path {
+    fill: #fff;
+    transition: color .3s ease;
   }
   
   #content {
@@ -320,47 +366,52 @@ section p {
   }
 
   .layout {
-    padding: 0;
-    margin: 80px 0 0;
-    align-items: center;
+    padding: 0 20px;
   }
 
-  .layout > h2 {
+  section.layout {
+    margin: 80px 0 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  section.layout > h2 {
     text-align: center;
   }
 
-  section {
+  body > section {
     margin: 0;
-    padding: 80px 20px 0;
+    padding: 80px 20px 20px;
   }
 
-  #experiences {
+  .tabs {
     flex-direction: column;
+    width: 100%;
   }
-  
-  #experiences > ul {
+
+  .tabs > ul {
     flex-direction: row;
-  }
-  
-  #experiences > ul > li {
     border-left: 0;
   }
-  
-  #experiences > ul > li {
-    border-bottom: solid 2px transparent;
-    font-size: 1.6rem;
-    transition: font-weight ease-in .2s;
+
+  .tabs > ul > li {
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
   }
-  
-  #experiences > ul > li.active {
-    border-bottom: solid 2px var(--color-blue);
-    color: var(--color-blue);
-    font-weight: bold;
+
+  .tabs-container {
+    flex-direction: column;
   }
-  
-  #experiences > div {
-    margin-left: 0;
-    padding-top: 30px;
-    min-height: 500px;
+
+  .tabs-container > section {
+    position: relative;
+    left: 0;
+    display: none;
+    margin-top: 30px;
+  }
+
+  .tabs-container > section.is-active {
+    display: block;
   }
 }
