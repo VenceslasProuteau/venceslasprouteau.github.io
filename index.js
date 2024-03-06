@@ -36,7 +36,7 @@ const toggleStickyNavBtn = document.querySelector('header > div.layout > button'
 const header = document.querySelector('header');
 
 toggleStickyNavBtn.addEventListener('click', toggleStickyNav);
-document.querySelectorAll('header > nav > ul > li')
+document.querySelectorAll('header > div.layout > nav > ul > li')
   .forEach((node) => {
     node.addEventListener('click', (e) => {
       if (header.children[0].classList.contains('sticky-nav')) {
